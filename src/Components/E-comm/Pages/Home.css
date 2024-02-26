@@ -1,0 +1,7 @@
+.Carousel-image {
+  height: 404px;
+  object-fit: cover;
+}
+.thumbs {
+  display: none;
+}

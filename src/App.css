@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.usestate {
+  margin-bottom: 2rem;
+}
+.usestate button {
+  width: 50px;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.valuep {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.mt-2rem {
+  margin-top: 2rem;
+}

@@ -1,0 +1,126 @@
+.card {
+  height: 24rem;
+  width: 17rem;
+  border-radius: 10px;
+  /* background-color: rgb(74, 142, 142); */
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.card:hover {
+  outline: 3px solid rgb(12, 165, 12);
+  outline-offset: 4px;
+  transform: scale(0.98);
+  transition: all 0.3s ease-in-out;
+}
+.card-img-div {
+  width: 13rem;
+  height: 7rem;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.product-info {
+  width: 16rem;
+  height: 7rem;
+  padding: 0 1rem 0 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.product-info h4 {
+  font-size: 0.9rem;
+}
+.product-image {
+  height: 70px;
+}
+.but-and-price {
+  width: 13rem;
+
+  justify-content: space-between;
+}
+.but-and-price > h5 {
+  font-size: 1.1rem;
+}
+.but-and-price > h5 > span {
+  font-size: 1.3rem;
+}
+.Text-black {
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.text-sec {
+  color: black;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.product-price {
+  font-size: 1.3rem;
+}
+
+/* .card {
+  height: 27rem;
+  width: 20rem;
+  border-radius: 10px;
+
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.card:hover {
+  outline: 3px solid rgb(12, 165, 12);
+  outline-offset: 4px;
+  transform: scale(0.98);
+  transition: all 0.3s ease-in-out;
+}
+.card-img-div {
+  width: 16rem;
+  height: 9rem;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.product-info {
+  width: 16rem;
+  height: 7rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+.product-image {
+  height: 120px;
+}
+.but-and-price {
+  width: 16rem;
+
+  justify-content: space-between;
+}
+.but-and-price > h5 {
+  font-size: 1.4rem;
+}
+.Text-black {
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.text-sec {
+  color: black;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.product-price {
+  font-size: 1.7rem;
+} */
