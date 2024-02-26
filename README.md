@@ -2,7 +2,7 @@
 
 ## Hosted Link
 
-https://cuisine-quest-app.netlify.app/
+https://redux-store-ecom.netlify.app/login
 
 ## Description
 
