@@ -5,6 +5,7 @@ import { add } from "../Store/cartSlice";
 import StarRating from "../Components/StarRating";
 import { FaCheckCircle } from "react-icons/fa";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import Notification from "../Components/Notification";
 import "../Pages/ProductDetails.css";
 import Testimg from "../Assets/Test-img.png";
 
@@ -13,6 +14,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [count, setCount] = useState(1);
+  const [showNotification, setShowNotification] = useState(false);
 
   function IncCounter() {
     setCount(count + 1);
@@ -27,23 +29,17 @@ const ProductDetails = () => {
   }
 
   const handleAdd = (product) => {
-    dispatch(add(product));
+    // dispatch(add(product));
+    dispatch(add({ ...product, quantity: count }));
+    setShowNotification(true);
+  };
+
+  const closeNotification = () => {
+    setShowNotification(false);
   };
 
   let countData = 1;
   let rateData = 1;
-
-  // if (data == undefined) {
-  //   countData = 1;
-  // } else {
-  //   countData = data.rating.count;
-  // }
-
-  // if (data == undefined) {
-  //   rateData = 1;
-  // } else {
-  //   rateData = data.rating.rate;
-  // }
 
   // const data = {
   //   category: "jewelery",
@@ -84,12 +80,10 @@ const ProductDetails = () => {
           </div>
 
           <div className="p-details-info">
-            <div>
+            <div className="p-desc-p">
               <span className="details-desc">Product description: </span>
 
-              <p className="details-desc-p" style={{ fontSize: "0.9rem" }}>
-                {data.description}
-              </p>
+              <p className="details-desc-p">{data.description}</p>
             </div>
             <br />
             <hr />
@@ -143,7 +137,7 @@ const ProductDetails = () => {
             <br />
             <hr />
             <br />
-            <div>
+            <div style={{ display: "none" }}>
               {(data.category === "men's clothing" ||
                 data.category === "women's clothing") && (
                 <>
@@ -240,6 +234,13 @@ const ProductDetails = () => {
           Add to Cart
         </button>
       </aside>
+
+      {showNotification && (
+        <Notification
+          message="Item added to the cart!"
+          onClose={closeNotification}
+        />
+      )}
     </div>
   );
 };

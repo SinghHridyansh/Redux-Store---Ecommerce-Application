@@ -27,13 +27,22 @@ nav {
 .menu-icon {
   display: none;
 }
+/* .logout-btn {
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  background-color: #ca3ef9;
+  color: white;
+}
+.logout-btn:hover {
+  background-color: red;
+  transition: 0.2s ease-in-out;
+} */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
   }
   .logo {
-    font-size: 1.3rem;
-    font-weight: 600;
+    width: 120px;
   }
   .links {
     z-index: 100;

@@ -25,6 +25,8 @@ const Products = () => {
           Title={product.title}
           Price={product.price}
           desc={product.description}
+          Rcount={product.rating.count}
+          Rrate={product.rating.rate}
         />
       ))}
     </div>

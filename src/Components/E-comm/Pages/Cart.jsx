@@ -1,56 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Pages/Cart.css";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { remove } from "../Store/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { remove, increment, decrement } from "../Store/cartSlice";
+import Notification from "../Components/Notification";
 
 const Cart = () => {
+  const [showNotification, setShowNotification] = useState(false);
   const dispatch = useDispatch();
 
   const handleRemove = (productId) => {
     dispatch(remove(productId));
+    setShowNotification(true);
+  };
+
+  const handleIncrement = (productId) => {
+    dispatch(increment(productId));
+  };
+
+  const handleDecrement = (productId) => {
+    dispatch(decrement(productId));
+  };
+
+  const closeNotification = () => {
+    setShowNotification(false);
   };
 
   const products = useSelector((state) => state.cart);
 
-  // Group products by id
-  const groupedProducts = Object.values(
-    products.reduce((acc, product) => {
-      const { id, title, price, image } = product;
-
-      if (!acc[id]) {
-        acc[id] = {
-          id,
-          title,
-          price,
-          image,
-          quantity: 1,
-        };
-      } else {
-        acc[id].quantity += 1;
-      }
-
-      return acc;
-    }, {})
-  );
-
-  const totalPrice = groupedProducts.reduce(
+  const totalPrice = products.reduce(
     (sum, product) => sum + product.price * product.quantity,
     0
   );
 
   return (
-    <div>
+    <div className="CartPage">
       <h3 className="orangeText ">Cart</h3>
 
-      {groupedProducts == 0 ? (
+      {products.length === 0 ? (
         <p>Cart is Empty</p>
       ) : (
         <>
           <div className="cartPage">
             <div className="cartWrapper paddings">
-              {groupedProducts.map((product) => (
+              {products.map((product) => (
                 <div className="flexColCenter cartCard" key={product.id}>
+                  {/* <div className="cartCard-img-title"> */}
                   <div className="cartcard-item">
                     <img src={product.image} alt="" />
                   </div>
@@ -58,17 +52,41 @@ const Cart = () => {
                   <div className="cartcard-item">
                     <h5>{product.title}</h5>
                   </div>
-                  <div className="cartcard-item">
-                    <h5>
-                      $ {product.price} x {product.quantity}
-                    </h5>
+                  {/* </div> */}
+                  <div
+                    className="cartcard-item"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div>
+                      <h5>
+                        $ {product.price} x {product.quantity}
+                      </h5>
+                    </div>
+                    <div className="incDec-btn-cont">
+                      <button
+                        className=" inc-dec"
+                        onClick={() => handleIncrement(product.id)}
+                      >
+                        +
+                      </button>
+                      <button
+                        className=" inc-dec"
+                        onClick={() => handleDecrement(product.id)}
+                      >
+                        -
+                      </button>
+                    </div>
                   </div>
+
                   <div className="cartcard-item">
                     <button
                       className="button cart-inside"
-                      onClick={() => {
-                        handleRemove(product.id);
-                      }}
+                      onClick={() => handleRemove(product.id)}
                     >
                       Remove from Cart
                     </button>
@@ -116,57 +134,17 @@ const Cart = () => {
               </div>
             </div>
           </div>
-
-          <h5>The Grand Total is: ${totalPrice}</h5>
         </>
+      )}
+
+      {showNotification && (
+        <Notification
+          message="Item removed from the cart!"
+          onClose={closeNotification}
+        />
       )}
     </div>
   );
 };
-
-// const Cart = () => {
-//   const dispatch = useDispatch();
-
-//   const handleRemove = (productId) => {
-//     dispatch(remove(productId));
-//   };
-
-//   const products = useSelector((state) => state.cart);
-
-//   const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
-//   return (
-//     <div>
-//       <h3 className="orangeText ">Cart</h3>
-//       <div className="cartWrapper paddings">
-//         {products.map((product) => (
-//           <div className="flexColCenter cartCard" key={product.id}>
-//             {/* <span>{product.id}</span> */}
-//             <div className="cartcard-item">
-//               <img src={product.image} alt="" />
-//             </div>
-
-//             <div className="cartcard-item">
-//               <h5>{product.title}</h5>
-//             </div>
-//             <div className="cartcard-item">
-//               <h5>$ {product.price}</h5>
-//             </div>
-//             <div className="cartcard-item">
-//               <button
-//                 className="button"
-//                 onClick={() => {
-//                   handleRemove(product.id);
-//                 }}
-//               >
-//                 Remove from Cart
-//               </button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//       <h5>The Grand Total is : ${totalPrice}</h5>
-//     </div>
-//   );
-// };
 
 export default Cart;

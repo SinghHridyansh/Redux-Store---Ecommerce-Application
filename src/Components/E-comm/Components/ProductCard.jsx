@@ -1,11 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import "../Components/ProductCard.css";
-import { useDispatch } from "react-redux";
-import { add } from "../Store/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { add, increment } from "../Store/cartSlice";
 import { Link } from "react-router-dom";
+import Notification from "./Notification";
+import StarRating from "./StarRating";
 
 const ProductCard = (props) => {
+  const [showNotification, setShowNotification] = useState(false);
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
+
+  const existingCartItem = cartItems.find(
+    (item) => item.id === props.productId
+  );
 
   function truncate(str, no_words) {
     return str.split(" ").splice(0, no_words).join(" ");
@@ -15,7 +24,16 @@ const ProductCard = (props) => {
   let details = truncate(props.desc, 13);
 
   const handleAdd = (product) => {
-    dispatch(add(product));
+    if (existingCartItem) {
+      dispatch(increment(existingCartItem.id));
+    } else {
+      dispatch(add(product));
+    }
+    setShowNotification(true);
+  };
+
+  const closeNotification = () => {
+    setShowNotification(false);
   };
   return (
     <>
@@ -34,17 +52,24 @@ const ProductCard = (props) => {
           </div>
         </Link>
         <div className="flexCenter but-and-price">
-          <button
+          {/* <button
             className="button"
             onClick={() => handleAdd(props.wholeProduct)}
           >
             Add to Cart
-          </button>
+          </button> */}
+          <StarRating rating={props.Rrate} count="5" />
           <h5>
             $ <span className="product-price">{props.Price}</span>
           </h5>
         </div>
       </div>
+      {showNotification && (
+        <Notification
+          message="Item added to the cart!"
+          onClose={closeNotification}
+        />
+      )}
     </>
   );
 };

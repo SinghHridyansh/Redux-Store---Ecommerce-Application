@@ -1,16 +1,6 @@
-/* .cartCard {
-  justify-content: space-between;
-  flex-direction: row;
-  background: #fff;
-  color: black;
-  margin-bottom: 20px;
-  padding: 14px;
-  border-radius: 5px;
-  padding-right: 2rem;
-  padding-left: 2rem;
-} */
 .cartPage {
   display: flex;
+  flex-direction: row;
 }
 .billing-section {
   width: 35vw;
@@ -41,7 +31,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-.cartcard-item:nth-child(2) > h5 {
+.cartcard-item:nth-child(4) > h5 {
   /* background-color: aqua; */
   font-weight: normal;
   font-size: 0.75rem;
@@ -112,4 +102,103 @@
   background: rgb(12, 165, 12);
   transition: all 0.5s ease-in;
   transform: scale(1.05);
+}
+.inc-dec {
+  padding: 2px 16px 2px 16px;
+  background-color: #ffa500;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.incDec-btn-cont {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .CartPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cartPage {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .cartWrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+  }
+  .cartCard {
+    width: 85%;
+    height: 200px;
+
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cart-inside {
+    font-size: 0.65rem;
+  }
+  .inc-dec {
+    padding: 0px 16px 0px 16px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .billing-section {
+    width: 80vw;
+    height: 70%;
+    /* background-color: rgba(0, 255, 255, 0.349); */
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .CartPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cartPage {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .cartWrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+  }
+  .cart-inside {
+    font-size: 0.7rem;
+  }
+  .inc-dec {
+    padding: 0px 16px 0px 16px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .billing-section {
+    width: 55vw;
+    /* background-color: rgba(0, 255, 255, 0.349); */
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -11,7 +11,7 @@ const Home = () => {
       <section>
         <h3 className="orangeText mt-2rem">Products</h3>
         <br />
-        <Carousel>
+        {/* <Carousel>
           <div>
             <img
               src="https://png.pngtree.com/thumb_back/fh260/back_our/20190628/ourmid/pngtree-taobao-e-commerce-advertisement-carousel-banner-background-purple-blue-image_264734.jpg"
@@ -33,7 +33,7 @@ const Home = () => {
             />
             <p className="legend">Legend 3</p>
           </div>
-        </Carousel>
+        </Carousel> */}
         <Products />
       </section>
     </div>

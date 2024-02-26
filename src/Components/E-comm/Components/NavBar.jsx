@@ -18,7 +18,7 @@ const NavBar = () => {
   };
 
   const { setIsloggedIn } = useContext(AuthContext);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const items = useSelector((state) => state.cart);
   return (
@@ -44,7 +44,10 @@ const NavBar = () => {
             onClick={() => {
               setIsloggedIn(false);
               //navigate("/");
+              navigate("/login");
             }}
+            // className="logout-btn"
+            className="button"
           >
             Logout
           </button>

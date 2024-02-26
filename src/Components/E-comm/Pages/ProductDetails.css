@@ -2,7 +2,7 @@
   flex-direction: row;
   background-color: white;
   color: black;
-  height: 100%;
+  height: 90vh;
   /* padding-top: 4rem; */
 }
 
@@ -17,7 +17,7 @@
   font-weight: 600;
 }
 .P-details-R {
-  height: 80vh;
+  height: 100%;
   width: 20vw;
   background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
   color: white;
@@ -64,6 +64,7 @@
   font-weight: 500;
 }
 .details-desc-p {
+  font-size: 0.9rem;
   margin-top: 20px;
 }
 .price {
@@ -105,4 +106,105 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+@media screen and (max-width: 767px) {
+  .Product-Details {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* padding-top: 4rem; */
+  }
+  .p-details-image {
+    padding: 2rem;
+    border-radius: 5px;
+    height: 250px;
+
+    min-width: 250px;
+  }
+
+  .P-details-L {
+    height: auto;
+    width: 100%;
+  }
+  .P-details-L h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .P-details-R {
+    height: 100%;
+    width: 100vw;
+
+    padding: 25px;
+  }
+  .p-details-info {
+    padding: 0 10rem 0 10rem;
+  }
+  .p-desc-p {
+    padding: 0 2rem 0 2rem;
+  }
+  .details-desc {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .details-desc-p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  .p-details-main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .rating-section {
+    transform: scale(0.7);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .Product-Details {
+    height: 90vh;
+    /* padding-top: 4rem; */
+  }
+  .p-details-image {
+    padding: 2rem;
+    border-radius: 5px;
+    height: 250px;
+
+    min-width: 250px;
+  }
+
+  .P-details-L {
+    height: 90vh;
+    width: 70vw;
+  }
+  .P-details-L h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .P-details-R {
+    height: 100%;
+    width: 30vw;
+
+    padding: 25px;
+  }
+  .details-desc {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .details-desc-p {
+    margin-top: 20px;
+    font-size: 0.8rem;
+  }
+  .p-details-main {
+    flex-direction: column;
+
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .rating-section {
+    transform: scale(0.8);
+  }
 }

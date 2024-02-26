@@ -39,6 +39,7 @@ const RegisterPage = () => {
         <div className="login-form">
           <div className="login-form-inner">
             <h2>Register</h2>
+
             <br />
             <br />
             <div>

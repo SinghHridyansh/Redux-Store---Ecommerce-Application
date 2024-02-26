@@ -40,7 +40,10 @@ const LoginPage = () => {
         </div>
         <div className="login-form">
           <div className="login-form-inner">
-            <h2>Sign in</h2>
+            <div>
+              <img src={logo} alt="" className="logo-ting" />
+              <h2>Sign in</h2>
+            </div>
             <br />
             <br />
             <div>
