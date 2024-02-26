@@ -2,7 +2,7 @@
 
 ## Hosted Link
 
-https://redux-store-ecom.netlify.app/login
+https://redux-store-ecom.netlify.app/
 
 ## Description
 
