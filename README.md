@@ -6,7 +6,7 @@ https://redux-store-ecom.netlify.app/
 
 ## Description
 
-Cuisine Quest is a ecommercet application. The sole purpose of developing this applcation was to learn and implement few major concepts in ReactJS. The products are present in the form of cards that can be further navigated to a dedicated details page. The user can store their selected prodcuts tho the dedicated cart. The quantity of the products can be changed directly either from the cart or the details page itself.
+Redux Store is a ecommercet application. The sole purpose of developing this applcation was to learn and implement few major concepts in ReactJS. The products are present in the form of cards that can be further navigated to a dedicated details page. The user can store their selected prodcuts tho the dedicated cart. The quantity of the products can be changed directly either from the cart or the details page itself.
 
 ## Table of Contents
 
